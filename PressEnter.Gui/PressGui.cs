@@ -33,10 +33,10 @@ namespace PressEnter.Gui
             _stateLabel.Text = _flow.InitialStateName;
             ExternalDataExchangeService externalDataSvc = new ExternalDataExchangeService();
             _workflowRuntime.AddService(externalDataSvc);
-            BaseServiceImplementation _eventService = Activator.CreateInstance(_flow.ServiceImplementation) as BaseServiceImplementation;
+            _eventService = Activator.CreateInstance(_flow.ServiceImplementation) as BaseServiceImplementation;
             externalDataSvc.AddService(_eventService);
-
             _instance.Start();
+            _flow.StartFlow();
             
         }
 
@@ -61,7 +61,6 @@ namespace PressEnter.Gui
         private void InitFlow()
         {
             _flow.Load("config.xml");
-            _flow.StartFlow();
         }
 
 

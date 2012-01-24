@@ -28,13 +28,15 @@ namespace PressEnter.Flow
             set { _serviceInterface = value; }
         }
 
-        private StateActivity _initial;
+        private StateActivity stateActivity2;
 
         private SetStateActivity setStateActivity1;
 
         private EventDrivenActivity eventDrivenActivity1;
 
         private DelayActivity delayActivity1;
+
+        private StateActivity stateActivity1;
         private Type _serviceImplementation;
 
         public Type ServiceImplementation
@@ -42,8 +44,14 @@ namespace PressEnter.Flow
             get { return _serviceImplementation; }
             set { _serviceImplementation = value; }
         }
+        private WorkflowChanges _tx;
         public void Load(String path)
         {
+            
+            _tx = new System.Workflow.ComponentModel.WorkflowChanges(this);
+            _tx.TransientWorkflow.Activities.Clear();
+
+
             this.AddButton("b1");
             this.AddButton("b2");
 
@@ -61,27 +69,22 @@ namespace PressEnter.Flow
 
         public PressFlow()
         {
-            this.CanModifyActivities = true;
-            this.CompletedStateName = null;
-            this.DynamicUpdateCondition = null;
-            this.Name = "PressFlow";
-            this.CanModifyActivities = false;
+            InitializeComponent();
+
+
         }
 
         public void AddState(PressState state)
         {
-
-            this.CanModifyActivities = true;
-            this.Activities.Add(state);
-            this.CanModifyActivities = false;
+            //System.Workflow.ComponentModel.WorkflowChanges tx = new System.Workflow.ComponentModel.WorkflowChanges(this);
+            _tx.TransientWorkflow.Activities.Add(state);
+            //this.ApplyWorkflowChanges(tx);
         }
 
         public void SetInitial(PressState state)
         {
-            this.CanModifyActivities = true;
-            this.InitialStateName = state.Name;
+     
             InitialState = state;
-            this.CanModifyActivities = false;
         }
 
         private PressState _init;
@@ -106,9 +109,9 @@ namespace PressEnter.Flow
             AssemblyBuilder bAssembly = System.AppDomain.CurrentDomain.DefineDynamicAssembly(bAssemblyName, AssemblyBuilderAccess.Run);
             ModuleBuilder bModule = bAssembly.DefineDynamicModule("PressEnter.Flow.Ifaces.dll", true);
 
-            TypeBuilder tInterface = bModule.DefineType("IPressService", TypeAttributes.Interface | TypeAttributes.Public);
-            ConstructorInfo con = typeof(ExternalDataExchangeAttribute).GetConstructor(new Type[] { typeof(string) });
-            CustomAttributeBuilder cab = new CustomAttributeBuilder(con, null);
+            TypeBuilder tInterface = bModule.DefineType("IPressService", TypeAttributes.Interface | TypeAttributes.Public | TypeAttributes.Abstract);
+            ConstructorInfo con = typeof(ExternalDataExchangeAttribute).GetConstructor(new Type[] { } );
+            CustomAttributeBuilder cab = new CustomAttributeBuilder(con,new object[]{});
             tInterface.SetCustomAttribute(cab);
             foreach (string button in _buttons)
             {
@@ -144,12 +147,13 @@ namespace PressEnter.Flow
 
         public void StartFlow()
         {
-            CanModifyActivities = false;
+            this.ApplyWorkflowChanges(_tx);
+           
         }
 
         public void StopFlow()
         {
-            CanModifyActivities = true;
+           
         }
 
         private List<String> _buttons = new List<string>();
@@ -178,17 +182,18 @@ namespace PressEnter.Flow
             this.setStateActivity1 = new System.Workflow.Activities.SetStateActivity();
             this.delayActivity1 = new System.Workflow.Activities.DelayActivity();
             this.eventDrivenActivity1 = new System.Workflow.Activities.EventDrivenActivity();
-            this._initial = new System.Workflow.Activities.StateActivity();
+            this.stateActivity1 = new System.Workflow.Activities.StateActivity();
+            this.stateActivity2 = new System.Workflow.Activities.StateActivity();
             // 
             // setStateActivity1
             // 
             this.setStateActivity1.Name = "setStateActivity1";
-            this.setStateActivity1.TargetStateName = "_initial";
+            this.setStateActivity1.TargetStateName = "stateActivity1";
             // 
             // delayActivity1
             // 
             this.delayActivity1.Name = "delayActivity1";
-            this.delayActivity1.TimeoutDuration = System.TimeSpan.Parse("00:00:00");
+            this.delayActivity1.TimeoutDuration = System.TimeSpan.Parse("00:01:00");
             // 
             // eventDrivenActivity1
             // 
@@ -196,17 +201,22 @@ namespace PressEnter.Flow
             this.eventDrivenActivity1.Activities.Add(this.setStateActivity1);
             this.eventDrivenActivity1.Name = "eventDrivenActivity1";
             // 
+            // stateActivity1
+            // 
+            this.stateActivity1.Name = "stateActivity1";
+            // 
             // _initial
             // 
-            this._initial.Activities.Add(this.eventDrivenActivity1);
-            this._initial.Name = "_initial";
+            this.stateActivity2.Activities.Add(this.eventDrivenActivity1);
+            this.stateActivity2.Name = "stateActivity2";
             // 
             // PressFlow
             // 
-            this.Activities.Add(this._initial);
-            this.CompletedStateName = null;
+            this.Activities.Add(this.stateActivity2);
+            this.Activities.Add(this.stateActivity1);
+            this.CompletedStateName = "stateActivity1";
             this.DynamicUpdateCondition = null;
-            this.InitialStateName = "_initial";
+            this.InitialStateName = "stateActivity2";
             this.Name = "PressFlow";
             this.CanModifyActivities = false;
 

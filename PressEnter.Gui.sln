@@ -6,9 +6,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PressEnter.Flow", "PressEnter.Flow\PressEnter.Flow.csproj", "{EC95E954-4472-46F5-914F-D11DBA32B9C8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5DDD035D-EBDB-4768-94D8-33459263142D}"
-	ProjectSection(SolutionItems) = preProject
-		README = README
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
