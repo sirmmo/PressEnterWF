@@ -13,18 +13,31 @@ using System.Workflow.Activities.Rules;
 
 namespace PressEnter.Flow
 {
-    public abstract partial class PressState : StateActivity
+    public abstract class PressState : StateActivity
     {
         public PressState():base()
         {
-            InitializeComponent();
+
+        }
+        private Type _iface;
+
+        public Type Interface
+        {
+            get { return _iface; }
+            set { _iface = value; }
+        }
+        public PressState(string name, Type iface):base()
+        {
+            Name = name;
+            _iface = iface;
         }
 
 
         public void AddTrigger(string buttonName, string nextState) {
             EventDrivenActivity eda = new EventDrivenActivity();
             HandleExternalEventActivity heea = new HandleExternalEventActivity();
-            heea.InterfaceType = typeof(IPressEvent);
+            heea.InterfaceType = _iface;
+            heea.EventName = "ButtonPressed";
             SetStateActivity ssa = new SetStateActivity();
             ssa.TargetStateName = nextState;
             eda.Activities.Add(heea);

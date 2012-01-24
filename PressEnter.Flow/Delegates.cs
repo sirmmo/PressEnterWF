@@ -4,5 +4,5 @@ using System.Text;
 
 namespace PressEnter.Flow
 {
-    public delegate void ButtonEvent(string parameter);
+    public delegate void ButtonEvent(string buttonName);
 }

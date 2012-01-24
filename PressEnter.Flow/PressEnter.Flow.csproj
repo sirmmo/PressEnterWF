@@ -42,16 +42,14 @@
     <Compile Include="AnimationState.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="BaseServiceImplementation.cs" />
     <Compile Include="Delegates.cs" />
     <Compile Include="ImageState.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="PressEvent.cs" />
+    <Compile Include="PressEventArgs.cs" />
     <Compile Include="PressState.cs">
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="PressState.Designer.cs">
-      <DependentUpon>PressState.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="ClassDiagram1.cd" />

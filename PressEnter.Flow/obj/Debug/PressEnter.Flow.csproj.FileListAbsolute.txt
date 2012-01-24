@@ -1,1 +1,5 @@
-c:\users\n61j\documents\visual studio 2010\Projects\PressEnter.Gui\PressEnter.Flow\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\N61j\documents\visual studio 2010\Projects\PressEnter.Gui\PressEnter.Flow\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\N61j\documents\visual studio 2010\Projects\PressEnter.Gui\PressEnter.Flow\bin\Debug\PressEnter.Flow.dll
+C:\Users\N61j\documents\visual studio 2010\Projects\PressEnter.Gui\PressEnter.Flow\bin\Debug\PressEnter.Flow.pdb
+C:\Users\N61j\documents\visual studio 2010\Projects\PressEnter.Gui\PressEnter.Flow\obj\Debug\PressEnter.Flow.dll
+C:\Users\N61j\documents\visual studio 2010\Projects\PressEnter.Gui\PressEnter.Flow\obj\Debug\PressEnter.Flow.pdb

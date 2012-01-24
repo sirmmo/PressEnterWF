@@ -18,7 +18,8 @@ namespace PressEnter.Flow
             set { _image = value; }
         }
 
-        public ImageState(string image)
+
+        public ImageState(string name, string image, Type iface):base(name,iface)
         {
             _image = image;
         }

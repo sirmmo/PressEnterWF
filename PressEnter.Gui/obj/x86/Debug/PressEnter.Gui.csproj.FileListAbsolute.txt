@@ -1,3 +1,11 @@
-c:\users\n61j\documents\visual studio 2010\Projects\PressEnter.Gui\PressEnter.Gui\obj\x86\Debug\ResolveAssemblyReference.cache
-c:\users\n61j\documents\visual studio 2010\Projects\PressEnter.Gui\PressEnter.Gui\obj\x86\Debug\ResGen.read.1.tlog
-c:\users\n61j\documents\visual studio 2010\Projects\PressEnter.Gui\PressEnter.Gui\obj\x86\Debug\ResGen.write.1.tlog
+C:\Users\N61j\documents\visual studio 2010\Projects\PressEnter.Gui\PressEnter.Gui\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\N61j\documents\visual studio 2010\Projects\PressEnter.Gui\PressEnter.Gui\obj\x86\Debug\ResGen.read.1.tlog
+C:\Users\N61j\documents\visual studio 2010\Projects\PressEnter.Gui\PressEnter.Gui\obj\x86\Debug\ResGen.write.1.tlog
+C:\Users\N61j\documents\visual studio 2010\Projects\PressEnter.Gui\PressEnter.Gui\bin\Debug\PressEnter.Gui.exe
+C:\Users\N61j\documents\visual studio 2010\Projects\PressEnter.Gui\PressEnter.Gui\bin\Debug\PressEnter.Gui.pdb
+C:\Users\N61j\documents\visual studio 2010\Projects\PressEnter.Gui\PressEnter.Gui\bin\Debug\PressEnter.Flow.dll
+C:\Users\N61j\documents\visual studio 2010\Projects\PressEnter.Gui\PressEnter.Gui\bin\Debug\PressEnter.Flow.pdb
+C:\Users\N61j\documents\visual studio 2010\Projects\PressEnter.Gui\PressEnter.Gui\obj\x86\Debug\PressEnter.Gui.PressGui.resources
+C:\Users\N61j\documents\visual studio 2010\Projects\PressEnter.Gui\PressEnter.Gui\obj\x86\Debug\PressEnter.Gui.Properties.Resources.resources
+C:\Users\N61j\documents\visual studio 2010\Projects\PressEnter.Gui\PressEnter.Gui\obj\x86\Debug\PressEnter.Gui.exe
+C:\Users\N61j\documents\visual studio 2010\Projects\PressEnter.Gui\PressEnter.Gui\obj\x86\Debug\PressEnter.Gui.pdb
