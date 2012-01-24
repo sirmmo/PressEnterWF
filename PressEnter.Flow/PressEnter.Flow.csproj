@@ -46,6 +46,7 @@
     <Compile Include="ImageState.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="PressEvent.cs" />
     <Compile Include="PressState.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -66,6 +67,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PressFlow.layout">
+      <DependentUpon>PressFlow.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.Targets" />
   <Import Project="$(MSBuildToolsPath)\Workflow.Targets" />

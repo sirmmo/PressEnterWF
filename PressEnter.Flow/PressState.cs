@@ -23,8 +23,11 @@ namespace PressEnter.Flow
 
         public void AddTrigger(string buttonName, string nextState) {
             EventDrivenActivity eda = new EventDrivenActivity();
+            HandleExternalEventActivity heea = new HandleExternalEventActivity();
+            heea.InterfaceType = typeof(IPressEvent);
             SetStateActivity ssa = new SetStateActivity();
             ssa.TargetStateName = nextState;
+            eda.Activities.Add(heea);
             eda.Activities.Add(ssa);
             this.CanModifyActivities = true;
             this.Activities.Add(eda);

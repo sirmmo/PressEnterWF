@@ -36,6 +36,8 @@ namespace PressEnter.Flow
             InitialState = state;
         }
 
+        private HandleExternalEventActivity handleExternalEventActivity1;
+
         private PressState _init;
 
         public PressState InitialState
@@ -60,7 +62,7 @@ namespace PressEnter.Flow
             ps1.Name = "ps2";
 
             p.AddState(ps1);
-            p.AddState(ps2); 
+            p.AddState(ps2);
             ps1.AddTrigger("b1", "ps2");
             ps2.AddTrigger("b2", "ps1");
             p.SetInitial(ps1);
@@ -68,11 +70,13 @@ namespace PressEnter.Flow
         }
 
 
-        public void StartFlow() {
-            this.CanModifyActivities = false;
+        public void StartFlow()
+        {
+            CanModifyActivities = false;
         }
-        public void StopFlow() {
-            this.CanModifyActivities = true;
+        public void StopFlow()
+        {
+            CanModifyActivities = true;
         }
         private List<String> _buttons = new List<string>();
         public List<string> Buttons
@@ -89,8 +93,36 @@ namespace PressEnter.Flow
 
         public void SendEvent(string p)
         {
-            throw new NotImplementedException();
+            this.
         }
+
+        private void InitializeComponent()
+        {
+            this.CanModifyActivities = true;
+            this.handleExternalEventActivity1 = new System.Workflow.Activities.HandleExternalEventActivity();
+            this.eventDrivenActivity1 = new System.Workflow.Activities.EventDrivenActivity();
+            // 
+            // handleExternalEventActivity1
+            // 
+            this.handleExternalEventActivity1.Name = "handleExternalEventActivity1";
+            // 
+            // eventDrivenActivity1
+            // 
+            this.eventDrivenActivity1.Activities.Add(this.handleExternalEventActivity1);
+            this.eventDrivenActivity1.Name = "eventDrivenActivity1";
+            // 
+            // PressFlow
+            // 
+            this.Activities.Add(this.eventDrivenActivity1);
+            this.CompletedStateName = null;
+            this.DynamicUpdateCondition = null;
+            this.InitialStateName = null;
+            this.Name = "PressFlow";
+            this.CanModifyActivities = false;
+
+        }
+
+        private EventDrivenActivity eventDrivenActivity1;
     }
 
 }

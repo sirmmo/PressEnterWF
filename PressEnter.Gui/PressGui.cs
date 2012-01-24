@@ -22,7 +22,7 @@ namespace PressEnter.Gui
 
         private void RunUI()
         {
-            //throw new NotImplementedException();
+            _stateLabel.Text = _flow.InitialStateName;
         }
 
         private void InitUI()
@@ -35,7 +35,6 @@ namespace PressEnter.Gui
                 b.Click+=new EventHandler(b_Click);
                 _buttonPanel.Controls.Add(b);
             }
-            _stateLabel.Text = _flow.InitialStateName;
 
         }
 
